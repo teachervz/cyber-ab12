@@ -289,6 +289,7 @@ input{font-family:inherit;-webkit-user-select:text;user-select:text}
 .verse-t{font-family:'Amiri','Traditional Arabic',serif;font-size:52px;font-weight:700;line-height:1.9;color:#3B2A06}
 .verse-t mark{background:linear-gradient(transparent 55%,#FDE68A 55%);color:#7C2D12;padding:0 6px;border-radius:6px}
 .verse-src{font-size:26px;font-weight:800;color:#B45309;margin-top:4px}
+.verse-play{margin-top:10px;font-size:22px;padding:6px 22px}
 .value-tip{font-size:30px;font-weight:800;color:var(--pd);text-align:center}
 
 /* ---------- سجل الخادم ---------- */
@@ -853,6 +854,7 @@ const SLIDES = [
   { type:'value', tag:'🌿 قيمة دينية', title:'آثارنا… مكتوبة', anim:'fade', h:250,
     verse:'إِنَّا نَحْنُ نُحْيِي الْمَوْتَىٰ <mark>وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ</mark> ۚ وَكُلَّ شَيْءٍ أَحْصَيْنَاهُ فِي إِمَامٍ مُّبِينٍ',
     source:'سورة يس – الآية 12',
+    audio:'quran.m4a',   // صوت التلاوة فقط (بدون صورة) ويبدأ تلقائيًا
     items:[
       { icon:'✍️', cover:'ما معنى «ما قدّموا»؟', t:'ما قدّموا', d:'الأعمال التي عملها الإنسان في حياته من خير أو شر، فكلها محفوظة ومكتوبة.' },
       { icon:'👣', cover:'ما معنى «آثارهم»؟', t:'وآثارهم', d:'ما يتركه الإنسان بعده من أثر يستمر: علم نافع، أو عمل خير يُقتدى به، أو عكس ذلك.' },
@@ -1364,12 +1366,17 @@ R.reveal = {
 
 /* قيمة دينية: آية + كشف المعاني */
 R.value = {
-  html:s=>`<div class="verse rv"><p class="verse-t">﴿ ${s.verse} ﴾</p><div class="verse-src">${s.source}</div></div>
+  html:s=>`<div class="verse rv"><p class="verse-t">﴿ ${s.verse} ﴾</p><div class="verse-src">${s.source}</div>
+      ${s.audio?`<audio class="verse-audio" src="${s.audio}" preload="auto"></audio><button class="btn ghost verse-play">🔊 استمعي للآية</button>`:''}</div>
     <div class="reveal-grid rv" style="--n:${s.items.length};--h:${s.h||250}px">${s.items.map((it,k)=>`<button class="rev"><div class="rev-cover">${it.icon}<small>${it.cover||'اضغطي للكشف'}</small></div>
       <div class="rev-content"><div class="rev-t">${it.t}</div><p>${it.d}</p></div></button>`).join('')}</div>
     <div class="center-row rv"><button class="btn ghost rev-all">📖 إظهار المعاني</button></div>
     ${s.tip?`<p class="value-tip rv">${s.tip}</p>`:''}`,
-  init:sec=>R.reveal.init(sec)
+  init:sec=>{ R.reveal.init(sec); const a=$('.verse-audio',sec); if(!a) return;
+    const b=$('.verse-play',sec), sync=()=>b.textContent=a.paused?'🔊 استمعي للآية':'⏸️ إيقاف التلاوة';
+    b.onclick=()=>{ a.paused?a.play().catch(()=>{}):a.pause(); };
+    ['play','pause','ended'].forEach(ev=>a.addEventListener(ev,sync)); },
+  enter:sec=>{ const a=$('.verse-audio',sec); if(a){ a.currentTime=0; a.play().catch(()=>{}); } }
 };
 
 /* سجل الخادم */
@@ -1591,7 +1598,7 @@ $('#brand').textContent=`${LESSON.lessonNo}: ${LESSON.title}`;
 function go(n){
   if(n<0||n>=slides.length) return;
   const dir=n>=current?1:-1, old=slides[current].el, nw=slides[n].el;
-  $$('video',old).forEach(v=>v.pause());
+  $$('video,audio',old).forEach(v=>v.pause());
   if(n!==current){ old.classList.remove('active'); retrigger(old,'leaving'); setTimeout(()=>old.classList.remove('leaving'),460); }
   const anim=slides[n].cfg.anim||ANIMS[n%ANIMS.length];
   nw.classList.remove('in-fade','in-zoom','in-slide-next','in-slide-prev','active'); void nw.offsetWidth;
