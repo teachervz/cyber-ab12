@@ -424,9 +424,9 @@ input{font-family:inherit;-webkit-user-select:text;user-select:text}
 
 /* ---------- فيديو ---------- */
 .video-wrap{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
-.video-box{height:100%;max-height:690px;aspect-ratio:16/9;border-radius:32px;overflow:hidden;background:#000;
+.video-box{height:100%;max-height:690px;max-width:100%;aspect-ratio:16/9;border-radius:32px;overflow:hidden;background:#000;
   border:8px solid #fff;box-shadow:0 0 0 4px var(--line),var(--shadow)}
-.video-box video{width:100%;height:100%;display:block;background:#000;object-fit:cover}
+.video-box video{width:100%;height:100%;display:block;background:#000;object-fit:contain}
 
 /* ---------- اقتباس ---------- */
 .quote-wrap{flex:1;display:grid;grid-template-columns:420px 1fr;gap:60px;align-items:center;min-height:0}
@@ -1540,6 +1540,8 @@ R.video = {
   html:s=>`<div class="video-wrap rv"><div class="video-box"><video src="${[].concat(s.src)[0]}" controls preload="auto" playsinline></video></div></div>`,
   // src قد يكون مصفوفة: تُشغَّل الفيديوهات واحدًا بعد الآخر
   init:(sec,s)=>{ const list=[].concat(s.src), v=$('video',sec); v.dataset.i=0;
+    // الإطار يأخذ أبعاد الفيديو الأصلية (طولي أو عرضي) بلا قصّ
+    v.addEventListener('loadedmetadata',()=>{ if(v.videoWidth) v.parentNode.style.aspectRatio=`${v.videoWidth}/${v.videoHeight}`; });
     v.addEventListener('ended',()=>{ const i=+v.dataset.i+1; if(i<list.length){ v.dataset.i=i; v.src=list[i]; v.play().catch(()=>{}); } }); },
   enter:(sec,s)=>{ const list=[].concat(s.src), v=$('video',sec);
     if(+v.dataset.i){ v.dataset.i=0; v.src=list[0]; }
