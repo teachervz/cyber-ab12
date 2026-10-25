@@ -453,6 +453,8 @@ input{font-family:inherit;-webkit-user-select:text;user-select:text}
 .cl-shield{font-size:140px;animation:floaty 4s ease-in-out infinite}
 .cl-title{font-size:92px;font-weight:900;line-height:1.2;background:linear-gradient(120deg,var(--pdd),var(--p),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
 .cl-msg{font-size:38px;font-weight:700;color:var(--muted)}
+.cl-hw{display:flex;align-items:center;gap:16px;font-size:34px;font-weight:800;color:var(--pd);background:var(--ps);border:3px dashed var(--p2);border-radius:var(--r);padding:16px 34px}
+.cl-hw b{color:var(--p)}
 .cl-tips{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:1500px}
 .cl-rate{display:flex;align-items:center;gap:18px;font-size:32px;font-weight:800;background:#fff;border-radius:999px;padding:10px 20px 10px 34px;box-shadow:var(--shadow-s);margin-top:10px}
 .rate{font-size:62px;transition:transform .2s;line-height:1}
@@ -547,6 +549,63 @@ body.idle #hint{opacity:0}
 .clap-fly{position:fixed;bottom:9vh;pointer-events:none;z-index:81;animation:clapUp 2.2s ease-out forwards}
 @keyframes clapUp{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:0}12%{opacity:1;transform:translate(0,-6vh) scale(1.1)}
   100%{transform:translate(var(--dx),-75vh) scale(.9) rotate(var(--rot));opacity:0}}
+
+/* ---------- الهيئة الوطنية للأمن السيبراني ---------- */
+.nca{flex:1;display:grid;grid-template-columns:560px 1fr;gap:44px;min-height:0}
+.nca-id{background:#fff;border-radius:36px;box-shadow:var(--shadow);border-top:12px solid #3A9C9A;padding:22px 28px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.nca-logo{width:100%;height:190px;object-fit:cover}
+.nca-fact{display:flex;align-items:center;gap:16px;background:#EEF8F7;border-radius:20px;padding:12px 18px;font-size:26px;font-weight:800;line-height:1.4;color:#1F4E5A}
+.nca-fact i{font-style:normal;font-size:38px}
+.nca-fact small{display:block;font-size:19px;direction:ltr;text-align:right;color:#4C8A93}
+.nca-def{display:flex;flex-direction:column;justify-content:center;gap:16px;min-height:0}
+.nca-grp{background:#fff;border-radius:28px;padding:14px 24px;box-shadow:var(--shadow-s);border-right:10px solid var(--c)}
+.nca-grp h4{font-size:29px;font-weight:900;color:var(--c);margin-bottom:8px}
+.nca-grp .chips{justify-content:flex-start;gap:10px;min-height:48px}
+.nca-grp .chip{font-size:24px;padding:6px 18px}
+.nca-grp .chip{transition:opacity .4s,transform .4s;transition-delay:calc(var(--k)*80ms)}
+.nca-grp:not(.show) .chip{opacity:0;transform:scale(.6)}
+
+/* ---------- إنجازات المملكة ---------- */
+.ranks{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.rk{position:relative;overflow:hidden;border-radius:36px;color:#fff;padding:30px 40px;box-shadow:var(--shadow);
+  background:linear-gradient(160deg,var(--c1),var(--c2));display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.rk::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.18) 2px,transparent 2.5px);background-size:34px 34px}
+.rk-medal{width:160px;height:160px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:900;color:#7A4B00;
+  background:radial-gradient(circle at 35% 30%,#FFF6C8,#F5C542 55%,#C98E0E);box-shadow:0 0 0 10px rgba(255,255,255,.25),0 20px 40px -10px rgba(0,0,0,.4)}
+.rk-big{font-size:50px;font-weight:900;line-height:1.2}
+.rk-idx{font-size:30px;font-weight:800;line-height:1.4}
+.rk-idx small{display:block;font-size:22px;opacity:.85;direction:ltr}
+.rk-src{font-size:24px;font-weight:700;line-height:1.6;background:rgba(255,255,255,.16);border-radius:18px;padding:10px 20px}
+.rk-cover{position:absolute;inset:0;z-index:2;background:linear-gradient(160deg,var(--c1),var(--c2));display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;font-size:46px;font-weight:900;transition:opacity .5s}
+.rk-cover span{font-size:130px;animation:floaty 4s ease-in-out infinite}
+.rk-cover small{font-size:24px;opacity:.85}
+.rk.open .rk-cover{opacity:0;pointer-events:none}
+.rk.open .rk-medal{animation:pop .6s .2s backwards}
+.rk-note{align-self:center;font-size:32px;font-weight:800;color:var(--pdd);background:#fff;border:3px solid var(--line);border-radius:999px;padding:14px 40px;box-shadow:var(--shadow-s)}
+
+/* ---------- تبويبات المبادرات ---------- */
+.tabs{flex:1;display:grid;grid-template-columns:520px 1fr;gap:34px;min-height:0}
+.tab-list{display:flex;flex-direction:column;justify-content:center;gap:14px}
+.tab{position:relative;display:flex;align-items:center;gap:16px;background:#fff;border:3px solid var(--line);border-radius:24px;padding:12px 20px;
+  font-size:28px;font-weight:900;text-align:right;box-shadow:var(--shadow-s);transition:transform .25s,background .25s,color .25s,border-color .25s}
+.tab i{font-style:normal;font-size:40px;width:68px;height:68px;flex:none;border-radius:20px;background:var(--pss);display:flex;align-items:center;justify-content:center}
+.tab:hover{transform:translateX(-6px);border-color:var(--c)}
+.tab.on{background:var(--c);border-color:var(--c);color:#fff;transform:translateX(-14px)}
+.tab.on i{background:rgba(255,255,255,.22)}
+.tab.seen::after{content:"✓";position:absolute;left:20px;font-size:30px;color:var(--ok)}
+.tab.on.seen::after{color:#fff}
+.tab-panel{--c:var(--p);background:#fff;border-radius:36px;box-shadow:var(--shadow);border-top:12px solid var(--c);padding:28px 40px;
+  display:flex;flex-direction:column;gap:16px;min-height:0;overflow:auto}
+.slide.active .tab-panel.tab-in{animation:tabIn .45s ease}
+@keyframes tabIn{from{opacity:0;transform:translateY(16px)}}
+.tab-panel h3{font-size:42px;font-weight:900;color:var(--c)}
+.tab-panel p{font-size:28px;font-weight:600;line-height:1.7}
+.tab-panel ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tab-panel li{font-size:26px;font-weight:700;line-height:1.5;background:var(--pss);border-radius:16px;padding:10px 18px;border-right:6px solid var(--c)}
+.tab-empty{margin:auto;text-align:center;font-size:34px;font-weight:700;line-height:1.7;color:var(--muted);display:flex;flex-direction:column;gap:26px;max-width:900px}
+.tab-empty .te-ic{font-size:110px;animation:floaty 4s ease-in-out infinite}
+.tab-empty b{color:var(--pd)}
 </style>
 </head>
 <body>
@@ -724,7 +783,7 @@ const SLIDES = [
     goals:[
       { icon:'🔄', t:'توضيح كيفية دمج الأمن السيبراني في مراحل دورة حياة النظام' },
       { icon:'👣', t:'تصنيف البصمة الرقمية إلى نشطة وغير نشطة' },
-      { icon:'🧱', t:'التمييز بين وظيفة جدار الحماية ووظيفة مكافحة الفيروسات' }
+      { icon:'🗂️', t:'توضيح ما تسجّله سجلات الخادم ومخاطر تداول البيانات الشخصية' }
     ],
     hint:'اضغطي على الهدف عند تحقّقه في نهاية الدرس ✓' },
 
@@ -735,17 +794,35 @@ const SLIDES = [
     seconds:120,
     suggestions:['حماية البيانات','كلمات المرور','الاختراق','الفيروسات','الخصوصية','جدار الحماية','الاحتيال','التشفير','التحديثات','الهاكرز'] },
 
-  /* 13) أكملي الفراغ — تعريف الهيئة */
+  /* 13) تعرّفي على الهيئة الوطنية للأمن السيبراني */
+  { type:'nca', tag:'🏛️ تعرّفي على', title:'الهيئة الوطنية للأمن السيبراني (NCA)',
+    logo:'logo2.webp',
+    facts:[
+      { icon:'🌐', t:'National Cybersecurity Authority', en:'NCA' },
+      { icon:'📜', t:'تأسست بموجب <b>أمر ملكي</b>' },
+      { icon:'🎯', t:'الجهة <b>المختصة</b> بالأمن السيبراني' },
+      { icon:'🧭', t:'<b>المرجع الوطني</b> في شؤونه' }
+    ],
+    groups:[
+      { icon:'🛡️', t:'الأمن السيبراني حسب تنظيم الهيئة هو حماية…', color:'#2D7F8C',
+        items:['🌐 الشبكات','💻 أنظمة تقنية المعلومات','🏭 أنظمة التقنيات التشغيلية','🧩 مكوناتها من أجهزة وبرمجيات','⚙️ ما تقدمه من خدمات','🗄️ ما تحتويه من بيانات'] },
+      { icon:'⛔', t:'من ماذا يحمي؟', color:'#F43F5E',
+        items:['اختراق','تعطيل','تعديل','دخول','استخدام','استغلال غير مشروع'] },
+      { icon:'🔭', t:'ماذا يشمل مفهومه؟', color:'#2D3E8C',
+        items:['🔐 أمن المعلومات','⚡ الأمن الإلكتروني','📱 الأمن الرقمي','… ونحو ذلك'] }
+    ] },
+
+  /* 14) أكملي الفراغ — تعريف الهيئة */
   { type:'blanks', tag:'🧩 خمّني الكلمة المفقودة', title:'ما هو الأمن السيبراني؟',
     source:'تعريف الهيئة الوطنية للأمن السيبراني (NCA):',
-    text:'هو حماية [الشبكات] وأنظمة تقنية المعلومات والأنظمة التشغيلية ومكوناتها من [أجهزة] و[برمجيات]، وما تقدمه من خدمات وما تحتويه من [بيانات]، من أي [اختراق] أو تعطيل أو تعديل أو دخول أو استخدام أو استغلال غير مشروع.',
-    note:'<span class="ni">🏛️</span><div><b>الهيئة الوطنية للأمن السيبراني</b> تأسست بأمر ملكي، وهي الجهة المختصة والمرجع الوطني في شؤون الأمن السيبراني بالمملكة.</div>' },
+    text:'هو حماية [الشبكات] وأنظمة تقنية المعلومات وأنظمة التقنيات التشغيلية، ومكوناتها من [أجهزة] و[برمجيات]، وما تقدمه من خدمات وما تحتويه من [بيانات]، من أي [اختراق] أو تعطيل أو تعديل أو دخول أو استخدام أو استغلال غير مشروع.',
+    note:'<span class="ni">🔭</span><div>ويشمل مفهوم الأمن السيبراني: <b>أمن المعلومات</b> و<b>الأمن الإلكتروني</b> و<b>الأمن الرقمي</b> ونحو ذلك.</div>' },
 
-  /* 14) فيديو: تعريف الأمن السيبراني */
+  /* 15) فيديو: تعريف الأمن السيبراني */
   { type:'video', tag:'🎬 شاهدي وتأمّلي', title:'ما هو الأمن السيبراني؟', anim:'fade',
     src:'cyber-define.mp4', autoplay:true },
 
-  /* 15) ماذا تتوقعين؟ */
+  /* 16) ماذا تتوقعين؟ */
   { type:'mcq', tag:'🔮 ماذا تتوقعين؟', title:'المملكة على خريطة الأمن السيبراني العالمية', anim:'fade',
     scene:`<div class="scene-card"><div class="sc-big">🏆</div><div class="sc-t">المؤشر العالمي<br>للأمن السيبراني</div><div class="sc-s">Global Cybersecurity Index – GCI</div></div>`,
     question:'برأيكِ… ما ترتيب المملكة العربية السعودية في هذا المؤشر (الكتاب السنوي للتنافسية العالمية 2026)؟',
@@ -758,20 +835,48 @@ const SLIDES = [
     answer:2,
     explain:'حافظت المملكة على <b>المركز الأول عالميًا</b> 🥇، وصُنّفت ضمن الفئة الأولى <b>«النموذج المحتذى به»</b> في مؤشر الاتحاد الدولي للاتصالات (ITU).' },
 
-  /* 16) بطاقات: مبادرات المملكة */
-  { type:'cards', tag:'🃏 بطاقات الاكتشاف', title:'كيف وصلت المملكة للصدارة؟',
-    cards:[
-      { icon:'🎓', title:'التعليم والتدريب', color:'#7C3AED',
-        text:'برامج الأكاديمية الوطنية، معسكرات الاتحاد السعودي للأمن السيبراني والبرمجة والدرونز (SAFCSP)، وإطار «سايبر-التعليم».' },
-      { icon:'🧭', title:'الاستراتيجية الوطنية', color:'#EC4899',
-        text:'خطط لتطوير القدرات الوطنية، وحماية البنية التحتية الحيوية، وتعزيز التعاون الدولي.' },
-      { icon:'🤝', title:'الشراكات الصناعية', color:'#14B8A6',
-        text:'شراكات مع شركات القطاع الخاص والشركات الدولية لتوفير برامج التدريب والتطوير.' },
-      { icon:'🚀', title:'تطوير القطاع', color:'#F59E0B',
-        text:'البرنامج الوطني «سايبرك» (CyberIC)، و«التمارين الوطنية السيبرانية»، ومبادرات لفئات المجتمع.' }
+  /* 17) إنجازات المملكة في المؤشرات العالمية */
+  { type:'ranks', tag:'🏆 إنجازات وطنية', title:'المملكة… رائدة عالميًا في الأمن السيبراني',
+    items:[
+      { medal:'1', cover:'الإنجاز الأول', c1:'#4FB3A9', c2:'#1F6F78',
+        big:'حافظت على المركز الأول',
+        idx:'في المؤشر العالمي للأمن السيبراني<small>Global Cybersecurity Index – GCI</small>',
+        src:'ضمن <b>الكتاب السنوي للتنافسية العالمية</b> (WCY) لعام 2026م<br>الصادر عن <b>المعهد الدولي للتنمية الإدارية</b> (IMD)' },
+      { medal:'⭐', cover:'الإنجاز الثاني', c1:'#5468C9', c2:'#2D3E8C',
+        big:'الفئة الأولى عالميًا',
+        idx:'«النموذج المحتذى به»<small>Role-modelling</small>',
+        src:'في <b>مؤشر الأمن السيبراني العالمي</b> لعام 2026م<br>الصادر عن <b>الاتحاد الدولي للاتصالات</b> (ITU)' }
+    ],
+    note:'🇸🇦 بما يعكس <b>ريادة المملكة</b> ونضج منظومتها الوطنية في الأمن السيبراني' },
+
+  /* 18) المبادرات المهنية للمملكة في الأمن السيبراني */
+  { type:'tabs', tag:'🚀 مبادرات المملكة', title:'كيف وصلت المملكة للصدارة؟',
+    intro:'تتخذ المملكة العربية السعودية خطوات مهمة لتلبية الحاجة إلى <b>وظائف وخبرات الأمن السيبراني</b> في البلاد، وهذه أبرز مبادراتها',
+    tabs:[
+      { icon:'🎓', t:'التعليم والتدريب', color:'#7C3AED',
+        text:'استثمرت الحكومة السعودية بشكل كبير في برامج التعليم والتدريب في الأمن السيبراني لتطوير القدرات المحلية؛ حيث تقدّم العديد من الجامعات والمعاهد برامج متخصصة للحصول على درجات علمية وشهادات في هذا المجال، كما أطلقت الحكومة مبادرات تدريبية لتطوير مهارات متخصصي تقنية المعلومات. ومن أمثلتها:',
+        list:['🏫 برامج <b>الأكاديمية الوطنية للأمن السيبراني</b>.',
+              '🏕️ معسكرات تدريبية ومسابقات <b>الاتحاد السعودي للأمن السيبراني والبرمجة والدرونز</b> (SAFCSP).',
+              '📘 أصدرت الهيئة (NCA) <b>الإطار السعودي للتعليم العالي في الأمن السيبراني «سايبر-التعليم»</b> (SCyber_Edu).'] },
+      { icon:'🧭', t:'استراتيجية الأمن السيبراني', color:'#EC4899',
+        text:'طوّرت المملكة العربية السعودية <b>استراتيجية وطنية شاملة</b> للأمن السيبراني تحدّد رؤية المملكة وأهدافها في هذا المجال، وتتضمن:',
+        list:['📈 خططًا لتطوير القدرات الوطنية للأمن السيبراني داخل المملكة.',
+              '🏗️ تدابير لحماية <b>البنية التحتية الحيوية</b>.',
+              '🌍 تعزيز <b>التعاون الدولي</b> في هذا المجال.'] },
+      { icon:'🤝', t:'الشراكات الصناعية', color:'#14B8A6',
+        text:'تعمل الحكومة السعودية أيضًا بشكل وثيق مع <b>شركات القطاع الخاص</b> لتلبية الحاجة إلى الخبرات في مجال الأمن السيبراني.',
+        list:['💡 مثال: دخلت الحكومة في شراكة مع <b>شركات دولية</b> لتوفير برامج التدريب والتطوير لمتخصصي الأمن السيبراني.'] },
+      { icon:'🚀', t:'تطوير قطاع الأمن السيبراني', color:'#F59E0B',
+        text:'لدى المملكة العديد من المبادرات لتسريع تطوير قطاع الأمن السيبراني ونموه وبناء قدراته، وتشمل:',
+        list:['☂️ البرنامج الوطني <b>سايبرك (CyberIC)</b> الذي يُعدّ مظلة للعديد من المبادرات.',
+              '🎯 <b>التمارين الوطنية السيبرانية</b> (National Cyber Drills).',
+              '👥 مبادرات التدريب على الأمن السيبراني التي تستهدف فئات مختلفة من المجتمع.'] },
+      { icon:'🛸', t:'الاتحاد السعودي (SAFCSP)', color:'#0EA5E9',
+        text:'<b>الاتحاد السعودي للأمن السيبراني والبرمجة والدرونز</b> مؤسسة وطنية تهدف إلى تمكين القوى العاملة المحلية وتعزيز قدراتها بناءً على أفضل الممارسات الدولية في مجالات:',
+        list:['🛡️ الأمن السيبراني.','💻 تطوير البرمجيات.','🛸 الطائرات المُسيّرة والتقنيات المتقدّمة.'] }
     ] },
 
-  /* 17) لعبة الترتيب: دورة حياة النظام */
+  /* 19) لعبة الترتيب: دورة حياة النظام */
   { type:'order', tag:'🧗 تحدي الترتيب', title:'دمج الأمن في دورة حياة النظام', pointEach:true,
     prompt:'رتّبي مراحل دورة حياة النظام بالضغط عليها بالترتيب الصحيح 👇',
     items:[
@@ -783,7 +888,7 @@ const SLIDES = [
       { icon:'🔧', t:'الصيانة',     en:'Maintenance',    info:'<b>الصيانة:</b> تقييمات أمنية منتظمة وتحديث ضوابط الأمان حسب الحاجة.' }
     ] },
 
-  /* 18) سؤال اختيار من متعدد */
+  /* 20) سؤال اختيار من متعدد */
   { type:'mcq', tag:'❓ استراتيجية الأسئلة', title:'سؤال سريع', anim:'fade',
     question:'في أي مرحلة يُجرى «اختبار الاختراق» ومسح الثغرات الأمنية؟',
     options:[
@@ -795,7 +900,7 @@ const SLIDES = [
     answer:2,
     explain:'في مرحلة <b>الاختبارات</b> نحاول «مهاجمة» النظام بطريقة مشروعة لنكتشف الثغرات قبل المخترقين.' },
 
-  /* 19) لاحظي واكتشفي: البصمة الرقمية */
+  /* 21) لاحظي واكتشفي: البصمة الرقمية */
   { type:'footprints', tag:'🔍 لاحظي واكتشفي', title:'ماذا تتركين خلفكِ على الإنترنت؟',
     prompt:'اختاري ما فعلتِه خلال الأسبوع الماضي، وراقبي ماذا يحدث 👀',
     actions:[
@@ -810,7 +915,7 @@ const SLIDES = [
     ],
     reveal:'هذه هي <b>البصمة الرقمية (Digital Footprint)</b>: أثر تتركينه عند كل عمل أو تصفح عبر الإنترنت، وقد يتمكن الآخرون من رؤيته وتحليله.' },
 
-  /* 20) تصنيف: نشطة أم غير نشطة */
+  /* 22) تصنيف: نشطة أم غير نشطة */
   { type:'sort', tag:'🗂️ صنّفي', title:'البصمة الرقمية: نشطة أم غير نشطة؟', pointEach:true,
     prompt:'هل تُركت هذه البصمة <b>بإرادتكِ</b> أم <b>دون قصد</b>؟ اضغطي على العمود المناسب',
     buckets:[
@@ -828,7 +933,7 @@ const SLIDES = [
       { icon:'🔎', t:'موقع يسجّل عمليات بحثك', b:'p' }
     ] },
 
-  /* 21) بطاقات: تأثير البصمة على دورة حياة النظام */
+  /* 23) بطاقات: تأثير البصمة على دورة حياة النظام */
   { type:'cards', tag:'🃏 بطاقات الاكتشاف', title:'كيف تؤثر البصمة الرقمية على الأنظمة والمؤسسات؟',
     subtitle:'قبل قلب البطاقة: توقّعي ماذا تعني كل كلمة 🤔',
     cards:[
@@ -842,7 +947,7 @@ const SLIDES = [
         text:'مراقبة البصمة الرقمية بانتظام عبر وسائل التواصل والمنصات لاكتشاف الأخطار مبكرًا.' }
     ] },
 
-  /* 22) كشف تدريجي: آثار التعقب الرقمية */
+  /* 24) كشف تدريجي: آثار التعقب الرقمية */
   { type:'reveal', tag:'👀 اكشفي', title:'آثار التعقب الرقمية (Digital Traces)', h:330,
     qIcon:'🧐', question:'كل نشاط لكِ يترك «آثارًا» تكوّن بصمتك… تنقسم إلى نوعين، ما هما؟',
     items:[
@@ -850,7 +955,7 @@ const SLIDES = [
       { icon:'🕶️', t:'آثار غير مقصودة وغير مرئية', d:'سجلات زيارات المواقع، عمليات البحث، سجلات تحركاتك على الإنترنت وتواصلك مع الآخرين.' }
     ] },
 
-  /* 23) قيمة دينية: ونكتب ما قدّموا وآثارهم */
+  /* 25) قيمة دينية: ونكتب ما قدّموا وآثارهم */
   { type:'value', tag:'🌿 قيمة دينية', title:'آثارنا… مكتوبة', anim:'fade', h:250,
     verse:'إِنَّا نَحْنُ نُحْيِي الْمَوْتَىٰ <mark>وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ</mark> ۚ وَكُلَّ شَيْءٍ أَحْصَيْنَاهُ فِي إِمَامٍ مُّبِينٍ',
     source:'سورة يس – الآية 12',
@@ -862,7 +967,7 @@ const SLIDES = [
     ],
     tip:'🤍 قبل أن تنشري أو تعلّقي… اسألي نفسك: هل أرضى أن يُكتب هذا في صحيفتي؟' },
 
-  /* 24) محاكاة سجل الخادم */
+  /* 26) محاكاة سجل الخادم */
   { type:'terminal', tag:'🔍 لاحظي واكتشفي', title:'ماذا يسجّل الخادم عنكِ في ثانية واحدة؟',
     url:'https://www.cyber-school.sa/lesson',
     pageText:'اضغطي لزيارة الموقع وراقبي الشاشة السوداء 👉',
@@ -879,7 +984,7 @@ const SLIDES = [
     question:'ماذا نسمي هذا الملف؟ ومن يستطيع رؤيته؟',
     answer:'هذه <b>سجلات الخادم (Server Logs)</b>: تُضاف إليها بيانات في كل زيارة، ولا يراها إلا <b>مالك الموقع</b>… وقد تُتتبَّع زياراتك بصمت دون علمك 🤫' },
 
-  /* 25) فكّري – زاوجي – شاركي */
+  /* 27) فكّري – زاوجي – شاركي */
   { type:'tps', tag:'👭 فكّري – زاوجي – شاركي', title:'قضية للنقاش',
     question:'📸 نشرت إحدى الطالبات صورة من نافذة غرفتها، والتطبيق يضيف موقعها تلقائيًا. ما المعلومات التي قد يعرفها الغرباء؟ ومن أين تجمع الشركات معلوماتنا؟',
     phases:[
@@ -889,7 +994,7 @@ const SLIDES = [
     ],
     answers:['📍 الموقع الجغرافي (GPS)','🏠 الحي وشكل المنزل','⏰ أوقات التواجد','✍️ ما ندخله بأنفسنا: الاسم والبريد والجوال','📶 نقاط الواي فاي المحيطة','📰 مصادر عامة وشركاء التسويق'] },
 
-  /* 26) كشف: مخاطر تداول البيانات */
+  /* 28) كشف: مخاطر تداول البيانات */
   { type:'reveal', tag:'⚠️ ماذا يحدث لبياناتي؟', title:'مخاطر تداول البيانات الشخصية', h:300,
     qIcon:'💭', question:'بياناتك تنتقل وتُخزَّن في أماكن كثيرة… ما الذي قد يترتب على ذلك؟',
     items:[
@@ -899,121 +1004,67 @@ const SLIDES = [
       { icon:'🏢', t:'إتاحتها لجهات متعددة', d:'باحثون، سلطات، محاكم، وشركات تسويق.' }
     ] },
 
-  /* 27) مقارنة: جدار الحماية ومكافحة الفيروسات */
-  { type:'compare', tag:'⚖️ قارني', title:'جدار الحماية 🆚 مكافحة الفيروسات',
-    cols:[
-      { icon:'🧱', name:'جدار الحماية', color:'#7C3AED', analogy:'مثل حارس بوابة المدرسة 💂‍♀️' },
-      { icon:'🩺', name:'مكافحة الفيروسات', color:'#14B8A6', analogy:'مثل العيادة التي تفحص وتعالج 💊' }
-    ],
-    rows:[
-      { k:'الوظيفة',       a:'يراقب حركة مرور الشبكة ويتحكم فيها',   b:'يكتشف البرامج الضارة ويمنعها ويزيلها' },
-      { k:'الهدف',         a:'يمنع المتسللين والوصول غير المصرح به', b:'يحمي من الفيروسات والديدان وأحصنة طروادة' },
-      { k:'النوع',         a:'أجهزة أو برمجيات',                      b:'برمجيات دائمًا' },
-      { k:'المسح الضوئي',  a:'لا يفحص الملفات والبرامج',               b:'يفحص الملفات بحثًا عن توقيعات البرامج الضارة' },
-      { k:'التوافق',       a:'قد يتعارض مع برامج أمان أخرى',            b:'متوافق مع معظم برامج الأمان' }
-    ] },
-
-  /* 28) تصنيف: من المسؤول؟ */
-  { type:'sort', tag:'🕵️‍♀️ من المسؤول؟', title:'مَن يتصدّى لهذا التهديد؟', pointEach:true,
-    prompt:'اقرئي الموقف، ثم حدّدي أداة الحماية المسؤولة عنه',
-    buckets:[
-      { key:'f', label:'جدار الحماية',     icon:'🧱', color:'#7C3AED' },
-      { key:'v', label:'مكافحة الفيروسات', icon:'🩺', color:'#14B8A6' }
-    ],
-    items:[
-      { icon:'👤', t:'جهاز غريب يحاول الدخول إلى حاسبك عبر الشبكة', b:'f' },
-      { icon:'💾', t:'فلاش ميموري يحتوي على ملف مصاب بفيروس', b:'v' },
-      { icon:'🚦', t:'مراقبة حركة مرور الشبكة حسب قواعد أمان محددة', b:'f' },
-      { icon:'🐴', t:'إزالة «حصان طروادة» من جهاز الحاسب', b:'v' },
-      { icon:'🚫', t:'منع المتسللين من الوصول إلى النظام', b:'f' },
-      { icon:'🔬', t:'فحص الملفات بحثًا عن سلوكيات البرامج الضارة', b:'v' }
-    ] },
-
-  /* 29) سؤال تحدٍّ مع كشف */
-  { type:'reveal', tag:'🤔 سؤال تحدٍّ', title:'هل جدار الحماية يحميني من كل شيء؟', h:300,
-    qIcon:'🧱', question:'جدار الحماية وحده لا يكفي! ما التهديدات التي لا يحمي منها؟',
-    items:[
-      { icon:'🎣', t:'الاحتيال الإلكتروني', d:'رسائل ومواقع تخدعك لتسليم بياناتك.' },
-      { icon:'📢', t:'الإعلانات المنبثقة', d:'نوافذ مزعجة قد تحمل روابط خطرة.' },
-      { icon:'📧', t:'البريد غير المرغوب فيه', d:'رسائل عشوائية مزعجة (Spam).' }
-    ] },
-
-  /* 30) كلمة ولي العهد */
+  /* 29) كلمة ولي العهد */
   { type:'quote', tag:'🇸🇦 كلمة ملهمة', title:'رؤية القيادة للأمن السيبراني', anim:'fade',
     image:'MBS.jpg',
     name:'صاحب السمو الملكي الأمير محمد بن سلمان بن عبد العزيز',
     by:'ولي العهد نائب رئيس مجلس الوزراء وزير الدفاع<br>كلمته في قمة العشرين 2019 – اليابان',
     text:'«نحن نعيش في زمن الابتكارات العلمية والتقنية غير المسبوقة، وآفاق النمو غير المحدودة، ويمكن لهذه التقنيات الجديدة مثل الذكاء الاصطناعي وإنترنت الأشياء، في حال تم استخدامها على النحو الأمثل، أن تجلب للعالم فوائد ضخمة، وفي الوقت ذاته فقد ينتج عن هذه الابتكارات تحديات جديدة مثل تغير أنماط العمل والمهارات اللازمة للتأقلم مع مستقبل العمل وكذلك <b>زيادة مخاطر الأمن السيبراني وتدفق المعلومات</b> مما يستوجب علينا معالجة هذه التحديات في أقرب وقت لتفادي تحولها إلى أزمات اقتصادية واجتماعية.»' },
 
-  /* 31) فيديوهات متتالية (تعمل واحدًا بعد الآخر) */
+  /* 30) فيديوهات متتالية (تعمل واحدًا بعد الآخر) */
   { type:'video', tag:'🎬 شاهدي وتأمّلي', title:'فيديوهات الأمن السيبراني', anim:'fade',
     src:['1.mp4','2.mp4','3.mp4'], autoplay:true },
 
-  /* 32) سؤال */
-  { type:'mcq', tag:'❓ اختاري الإجابة الصحيحة', title:'موقف تقني', anim:'fade',
-    question:'ثبّتِ برنامج مكافحة فيروسات يحتوي على جدار حماية، فطلب منكِ تعطيل جدار حماية ويندوز. لماذا؟',
-    options:[
-      { icon:'🐢', t:'لأن جدار ويندوز بطيء' },
-      { icon:'⚔️', t:'لتجنّب التعارض بين برنامجي الأمان' },
-      { icon:'🗑️', t:'لأن جدار ويندوز لا يعمل' },
-      { icon:'💰', t:'لأن البرنامج الجديد مدفوع' }
-    ],
-    answer:1,
-    explain:'قد يتعارض جدار الحماية مع برامج أمان أخرى. ويحتوي ويندوز على جدار <b>Windows Defender</b> وبرنامج مكافحة فيروسات مجاني هو <b>مايكروسوفت ديفندر</b>.' },
-
-  /* 33) صح أم خطأ */
+  /* 31) صح أم خطأ */
   { type:'tf', tag:'✔️✖️ التقييم الفوري: صح أم خطأ؟', title:'قرّري… وبرّري!',
     items:[
-      { t:'جدار الحماية يحميني من رسائل البريد غير المرغوب فيها.', a:false, why:'خطأ: لا يحمي من البريد المزعج ولا الاحتيال ولا الإعلانات المنبثقة.' },
       { t:'البصمة الرقمية غير النشطة قد أتركها دون أن أعرف.', a:true, why:'صح: مثل تحديد الموقع وملفات تعريف الارتباط.' },
       { t:'يكفي دمج الأمن السيبراني في مرحلة التصميم فقط.', a:false, why:'خطأ: يُدمج في جميع مراحل دورة حياة النظام.' },
       { t:'سجلات الخادم يستطيع أي زائر للموقع رؤيتها.', a:false, why:'خطأ: لا يراها إلا مالك الموقع.' },
-      { t:'جدار الحماية قد يكون جهازًا أو برنامجًا.', a:true, why:'صح: بينما مكافحة الفيروسات برمجيات دائمًا.' }
+      { t:'ملفات تعريف الارتباط (الكوكيز) من أمثلة البصمة الرقمية النشطة.', a:false, why:'خطأ: هي بصمة غير نشطة تُجمع دون قصد منكِ.' }
     ] },
 
-  /* 34) التعلم التعاوني */
+  /* 32) التعلم التعاوني */
   // المهام بنفس ترتيب المجموعات في LESSON.teams (المهمة الأولى للمجموعة الأولى… وهكذا)
   { type:'groups', tag:'🤝 التعلم التعاوني', title:'غرفة العمليات السيبرانية', points:3,
     prompt:'لكل مجموعة مهمة… اكشفي مهمتكِ ونفّذيها قبل انتهاء الوقت ⏱️ (حتى 3 نقاط)',
     seconds:180,
     tasks:[
-      'قارنّ بين جدار الحماية ومكافحة الفيروسات.',
+      'وضّحن كيف يُدمج الأمن السيبراني في مراحل دورة حياة النظام الست.',
       'اكتبن 3 أمثلة لبصمة نشطة و3 لبصمة غير نشطة من يومكن.',
       'اذكرن 4 مخاطر لتداول البيانات الشخصية، واقترحن طريقة حماية لكل خطر.',
       'لخّصن مبادرات المملكة الأربع في الأمن السيبراني بخريطة ذهنية صغيرة.'
     ] },
 
-  /* 35) تحدي الدقيقة */
+  /* 33) تحدي الدقيقة */
   { type:'challenge', tag:'⚡ تحدي الدقيقة', title:'كم سؤالًا تجيبين في 60 ثانية؟',
     seconds:60,
     questions:[
       { q:'اذكري مرحلتين من مراحل دورة حياة النظام', a:'التحليل، التصميم، التطوير، الاختبارات، التنفيذ، الصيانة' },
       { q:'ما اختصار الهيئة الوطنية للأمن السيبراني؟', a:'NCA' },
+      { q:'ما البرنامج الوطني الذي يُعدّ مظلة لمبادرات تطوير قطاع الأمن السيبراني؟', a:'سايبرك (CyberIC)' },
       { q:'إلى صنفين تنقسم البصمة الرقمية… ما هما؟', a:'نشطة وغير نشطة' },
       { q:'مثال على بصمة رقمية غير نشطة؟', a:'تحديد الموقع / ملفات تعريف الارتباط' },
-      { q:'ما البرنامج المجاني لمكافحة الفيروسات في ويندوز؟', a:'مايكروسوفت ديفندر (Microsoft Defender)' },
-      { q:'اذكري تهديدًا لا يحمي منه جدار الحماية', a:'الاحتيال / الإعلانات المنبثقة / البريد المزعج' },
       { q:'من يستطيع رؤية سجلات الخادم؟', a:'مالك الموقع فقط' },
-      { q:'ما ترتيب المملكة في المؤشر العالمي للأمن السيبراني؟', a:'المركز الأول عالميًا 🥇' },
-      { q:'أيهما يفحص الملفات بحثًا عن البرامج الضارة: الجدار أم المكافحة؟', a:'مكافحة الفيروسات' }
+      { q:'ما ترتيب المملكة في المؤشر العالمي للأمن السيبراني؟', a:'المركز الأول عالميًا 🥇' }
     ] },
 
-  /* 36) مراجعة: خريطة الدرس */
+  /* 34) مراجعة: خريطة الدرس */
   { type:'review', tag:'🗺️ مراجعة', title:'خريطة الدرس',
     center:{ icon:'🧠', t:'خريطة الأمن السيبراني', d:'اضغطي على أي فكرة لمراجعتها، واطلبي من زميلتكِ شرحها قبل الضغط!' },
     nodes:[
       { icon:'🔄', t:'دورة حياة النظام', color:'#7C3AED', d:'الأمن يُدمج في المراحل الست: التحليل، التصميم، التطوير، الاختبارات، التنفيذ، الصيانة.' },
       { icon:'🏛️', t:'المملكة والأمن السيبراني', color:'#10B981', d:'الهيئة الوطنية NCA، المركز الأول عالميًا في GCI، ومبادرات مثل سايبرك والتمارين الوطنية.' },
       { icon:'👣', t:'البصمة الرقمية', color:'#EC4899', d:'نشطة: بإرادتك (منشورات، نماذج). غير نشطة: دون قصد (الموقع، الكوكيز).' },
-      { icon:'🗂️', t:'سجلات الخادم', color:'#0EA5E9', d:'تسجّل IP ووقت الاتصال وطريقة الطلب والملف المطلوب… ولا يراها إلا مالك الموقع.' },
-      { icon:'🧱', t:'جدار الحماية والمكافحة', color:'#F59E0B', d:'الجدار يراقب الشبكة ويمنع المتسللين، والمكافحة تفحص الملفات وتزيل البرامج الضارة.' }
+      { icon:'🗂️', t:'سجلات الخادم', color:'#0EA5E9', d:'تسجّل IP ووقت الاتصال وطريقة الطلب والملف المطلوب… ولا يراها إلا مالك الموقع.' }
     ] },
 
-  /* 37) لوحة الصدارة وإعلان الفائز */
+  /* 35) لوحة الصدارة وإعلان الفائز */
   { type:'leaderboard', tag:'🏆 لحظة الحسم', title:'لوحة الصدارة', anim:'zoom' },
 
-  /* 38) الختام */
+  /* 36) الختام */
   { type:'closing', anim:'zoom',
+    homework:'الواجب في <b>منصة مدرستي</b> 📲 لا تنسي حلّه وتسليمه في الموعد',
     title:'أنتِ خط الدفاع الأول 🛡️',
     message:'الأمن السيبراني ليس مهمة المختصين فقط… بل عادة يومية لكل واحدة منا',
     tips:['🔑 كلمة مرور قوية لكل حساب','🤔 فكّري قبل أن تنشري','🔄 حدّثي برامج الحماية','🚫 لا تضغطي روابط مجهولة','👣 انتبهي لبصمتك الرقمية'],
@@ -1561,6 +1612,51 @@ R.quote = {
     <div class="q-box rv"><p class="q-text">${s.text}</p><div class="q-by"><strong>${s.name}</strong>${s.by}</div></div></div>`
 };
 
+/* بطاقة تعريف الهيئة + تفكيك التعريف */
+R.nca = {
+  html:s=>`<div class="nca">
+    <div class="nca-id rv"><img class="nca-logo" src="${s.logo}" alt="الهيئة الوطنية للأمن السيبراني">
+      ${s.facts.map(f=>`<div class="nca-fact"><i>${f.icon}</i><div>${f.t}${f.en?`<small>${f.en}</small>`:''}</div></div>`).join('')}</div>
+    <div class="nca-def">${s.lead?`<p class="lead rv">${s.lead}</p>`:''}
+      ${s.groups.map(g=>`<div class="nca-grp rv" style="--c:${g.color}"><h4>${g.icon} ${g.t}</h4><div class="chips">${g.items.map((c,k)=>`<span class="chip" style="--k:${k}">${c}</span>`).join('')}</div></div>`).join('')}
+      <div class="center-row rv"><button class="btn primary nca-next">▶ اكشفي التالي</button><button class="btn ghost nca-all">👀 الكل</button></div></div></div>`,
+  init:sec=>{
+    const g=$$('.nca-grp',sec), btn=$('.nca-next',sec); let i=0;
+    const step=()=>{ if(i<g.length){ g[i++].classList.add('show'); sound.pop(); } if(i>=g.length){ btn.disabled=true; btn.textContent='✓ اكتمل التعريف'; } };
+    btn.onclick=step; $('.nca-all',sec).onclick=()=>{ while(i<g.length) step(); };
+  }
+};
+
+/* إنجازات (ميداليات تُكشف بالضغط) */
+R.ranks = {
+  html:s=>`<div class="ranks">${s.items.map(it=>`<button class="rk rv" style="--c1:${it.c1};--c2:${it.c2}">
+      <div class="rk-cover"><span>🏆</span>${it.cover}<small>اضغطي لكشف الإنجاز</small></div>
+      <div class="rk-medal">${it.medal}</div><div class="rk-big">${it.big}</div><div class="rk-idx">${it.idx}</div><div class="rk-src">${it.src}</div></button>`).join('')}</div>
+    ${s.note?`<div class="rk-note rv">${s.note}</div>`:''}`,
+  init:sec=>$$('.rk',sec).forEach(b=>b.onclick=()=>{
+    if(b.classList.contains('open')) return; b.classList.add('open'); sound.ding();
+    if(!$$('.rk:not(.open)',sec).length) celebrate($('.ranks',sec),true);
+  })
+};
+
+/* تبويبات (قائمة + لوحة تفاصيل) */
+R.tabs = {
+  html:s=>`<div class="tabs">
+    <div class="tab-list">${s.tabs.map((t,k)=>`<button class="tab rv" data-k="${k}" style="--c:${t.color}"><i>${t.icon}</i><span>${t.t}</span></button>`).join('')}</div>
+    <div class="tab-panel rv"><div class="tab-empty"><div class="te-ic">${s.icon||'🇸🇦'}</div><div>${s.intro}</div><b>👉 اضغطي على كل مبادرة لاكتشافها</b></div></div></div>`,
+  init:(sec,s)=>{
+    const tabs=$$('.tab',sec), panel=$('.tab-panel',sec); let done=false;
+    tabs.forEach(b=>b.onclick=()=>{
+      const t=s.tabs[+b.dataset.k];
+      tabs.forEach(x=>x.classList.remove('on')); b.classList.add('on','seen');
+      panel.style.setProperty('--c',t.color);
+      panel.innerHTML=`<h3>${t.icon} ${t.t}</h3><p>${t.text}</p>${t.list?`<ul>${t.list.map(l=>`<li>${l}</li>`).join('')}</ul>`:''}`;
+      panel.scrollTop=0; retrigger(panel,'tab-in'); sound.pop();
+      if(!done&&!$$('.tab:not(.seen)',sec).length){ done=true; celebrate(panel,true); }
+    });
+  }
+};
+
 /* عنوان قسم */
 R.section = {
   html:s=>`<div class="section"><div class="sec-ic rv">${s.icon||'📌'}</div><h1 class="sec-title rv">${s.title}</h1>${s.subtitle?`<p class="sec-sub rv">${s.subtitle}</p>`:''}</div>`
@@ -1569,6 +1665,7 @@ R.section = {
 /* الختام */
 R.closing = {
   html:s=>`<div class="closing"><div class="cl-shield rv">🛡️</div><h1 class="cl-title rv">${s.title}</h1><p class="cl-msg rv">${s.message}</p>
+    ${s.homework?`<div class="cl-hw rv">📝 ${s.homework}</div>`:''}
     <div class="cl-tips rv">${s.tips.map(t=>`<span class="chip lg">${t}</span>`).join('')}</div>
     <div class="cl-rate rv"><span>كيف تقيّمين فهمكِ للدرس؟</span>${s.rating.map((r,k)=>`<button class="rate" data-k="${k}">${r.e}</button>`).join('')}</div>
     <div class="rate-msg"></div></div>`,
